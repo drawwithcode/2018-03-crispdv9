@@ -9,6 +9,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight)
   angleMode(DEGREES);
   background(255)
+  frameRate(5)
 
   for (var x = 50; x < width; x += 50) {
     for (var y = 50; y < height; y += 50) {
@@ -47,13 +48,35 @@ function setup() {
       ellipse(x, y, 30);
     }
   }
+
+
+}
+var iterator = 0;
+
+
+function draw() {
+  // iterator ++;
+  // var x = iterator;
+  // var y = noise(iterator/200) * height;
+  // stroke(0)
+  // fill('blue')
+  // ellipse(x, y, 1000);
+  for (var x = 25; x < width; x += 50) {
+    for (var y = 25; y < height; y += 50) {
+      var index = floor(random() * colorList.length);
+      var colorHex = colorList[index];
+      fill(color(colorHex));
+      noStroke();
+      ellipse(x, y, 10);
+    }
+  }
   for (var x = 50; x < width; x += 50) {
     for (var y = 50; y < height; y += 50) {
       var index = floor(random() * colorList.length);
       var colorHex = colorList[index];
       fill(colorList[3]);
       noStroke();
-      rect(x, y, 10, 10);
+      rect(x,y, 10, 10);
     }
   }
   for (var x = 50; x < width; x += 50) {
@@ -83,26 +106,5 @@ function setup() {
       rect(x, y, -10, 10);
     }
   }
-
-}
-var iterator = 0;
-
-function draw() {
-  // iterator ++;
-  // var x = iterator;
-  // var y = noise(iterator/200) * height;
-  // stroke(0)
-  // fill('blue')
-  // ellipse(x, y, 1000);
-  for (var x = 25; x < width; x += 50) {
-    for (var y = 25; y < height; y += 50) {
-      var index = floor(random() * colorList.length);
-      var colorHex = colorList[index];
-      fill(color(colorHex));
-      noStroke();
-      ellipse(x, y, 10);
-    }
-  }
-
 
 }
